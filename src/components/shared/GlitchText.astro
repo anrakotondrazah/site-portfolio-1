@@ -1,0 +1,14 @@
+---
+interface Props {
+  text: string;
+  tag?: "h1" | "h2" | "h3" | "span";
+  className?: string;
+}
+
+const { text, tag = "span", className = "" } = Astro.props;
+const Tag = tag;
+---
+
+<Tag class={`glitch-text ${className}`} data-text={text}>
+  {text}
+</Tag>

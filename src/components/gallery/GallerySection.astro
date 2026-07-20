@@ -1,0 +1,33 @@
+---
+import MasonryGrid from "./MasonryGrid.tsx";
+import SectionLabel from "../shared/SectionLabel.astro";
+import { galleryData } from "../../data/gallery";
+---
+
+<section
+  id="gallery"
+  class="relative py-24 bg-cyber-dark overflow-hidden border-b border-cyber-border/30"
+>
+  {/* Cyber Grid background */}
+  <div
+    class="absolute inset-0 bg-cyber-grid bg-grid opacity-10 pointer-events-none"
+  >
+  </div>
+
+  <div class="container mx-auto px-6 max-w-7xl relative z-10">
+    <div class="text-center mb-16">
+      <SectionLabel index="03" label="WORK" align="center" />
+      <h2 class="font-display text-display-lg text-white mb-4">
+        Everything Below Was Made By AI.<br />
+        <span class="text-gradient-cyber"
+          >No Photographer. No Studio. No Waiting.</span
+        >
+      </h2>
+      <p class="font-mono text-sm text-cyber-text-secondary max-w-2xl mx-auto">
+        20 examples across 5 categories. Hover to see the prompt used.
+      </p>
+    </div>
+
+    <MasonryGrid items={galleryData} client:visible />
+  </div>
+</section>

@@ -1,0 +1,21 @@
+---
+import ParticleCanvas from "./ParticleCanvas.tsx";
+import HeroContent from "./HeroContent.astro";
+---
+
+<section
+  id="hero"
+  class="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-cyber-dark"
+>
+  <!-- Three.js Background -->
+  <ParticleCanvas client:only="react" />
+
+  <!-- Hero Content -->
+  <HeroContent />
+
+  <!-- Bottom gradient transition -->
+  <div
+    class="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-t from-cyber-dark to-transparent z-30 pointer-events-none"
+  >
+  </div>
+</section>

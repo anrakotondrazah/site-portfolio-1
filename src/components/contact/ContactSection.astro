@@ -1,0 +1,56 @@
+---
+import ContactForm from "./ContactForm.tsx";
+import SectionLabel from "../shared/SectionLabel.astro";
+---
+
+<section
+  id="contact"
+  class="relative py-24 bg-cyber-dark overflow-hidden border-b border-cyber-border/30"
+>
+  {/* Cyber Grid background */}
+  <div
+    class="absolute inset-0 bg-cyber-grid bg-grid opacity-10 pointer-events-none"
+  >
+  </div>
+
+  <div class="container mx-auto px-6 max-w-4xl relative z-10">
+    <div class="text-center mb-12">
+      <SectionLabel index="08" label="CONTACT" align="center" />
+      <h2 class="font-display text-display-lg text-white mb-4">
+        Let's Build Something<br />
+        <span class="text-gradient-cyber">Extraordinary.</span>
+      </h2>
+      <p class="font-mono text-sm text-cyber-text-secondary max-w-2xl mx-auto">
+        First visual is on us. No account. No card. Just describe what you need
+        and we'll handle the rest.
+      </p>
+    </div>
+
+    <ContactForm client:visible />
+
+    {/* Direct contact info under form */}
+    <div
+      class="mt-16 text-center border-t border-cyber-border/10 pt-12 max-w-xl mx-auto font-mono text-xs"
+    >
+      <p class="text-cyber-text-dim uppercase tracking-wider mb-4">
+        &mdash; Or reach out directly &mdash;
+      </p>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-cyber-text-secondary text-left sm:text-center"
+      >
+        <div>
+          <p class="text-cyber-cyan font-bold">📧 Email</p>
+          <p class="text-cyber-text-dim mt-1">andry@neural-vision.dev</p>
+        </div>
+        <div>
+          <p class="text-cyber-cyan font-bold">💬 WhatsApp</p>
+          <p class="text-cyber-text-dim mt-1">+261 34 00 000 00</p>
+        </div>
+      </div>
+      <p class="text-[10px] text-cyber-text-dim/60 mt-8">
+        🌍 Based in: Antananarivo, Madagascar (UTC+3) <span class="mx-2">|</span
+        > 🕐 Available: Mon – Sat, 8AM – 7PM EAT
+      </p>
+    </div>
+  </div>
+</section>

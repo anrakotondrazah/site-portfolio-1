@@ -1,0 +1,102 @@
+---
+import SectionLabel from "../shared/SectionLabel.astro";
+---
+
+<section
+  id="about"
+  class="relative py-24 bg-cyber-dark overflow-hidden border-b border-cyber-border/30"
+>
+  {/* Cyber Grid background */}
+  <div
+    class="absolute inset-0 bg-cyber-grid bg-grid opacity-10 pointer-events-none"
+  >
+  </div>
+
+  <div class="container mx-auto px-6 max-w-5xl relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      {/* Bio details left */}
+      <div data-gsap="about-info">
+        <SectionLabel index="07" label="ABOUT" />
+        <h2 class="font-display text-display-lg text-white mb-6">
+          The Human<br />
+          Behind The Machine.
+        </h2>
+        <div
+          class="font-mono text-xs text-cyber-text-secondary space-y-4 leading-relaxed"
+        >
+          <p>
+            I'm <strong class="text-cyber-cyan font-bold">Andry</strong> — a Web Developer
+            & AI Creative from Madagascar. I build websites that feel like experiences,
+            and I generate visual content that makes people stop scrolling.
+          </p>
+          <p>
+            I got into AI tools before most people realized what was coming.
+            While agencies were still debating whether AI would replace
+            photographers, I was already using it to deliver studio-quality work
+            for a fraction of the cost. That gap is my advantage — and yours.
+          </p>
+          <p>
+            Every visual on this site was generated using tools I operate daily:
+            Google Gemini Imagen 3, VEO, and advanced image generation
+            pipelines. I don't outsource the AI work — I run it, I control it,
+            and I make sure it meets a standard I'm proud to put my name on.
+          </p>
+          <p class="text-cyber-text-dim text-[10px]">
+            Based in Antananarivo, Madagascar (UTC+3) &mdash; working with
+            clients worldwide.
+          </p>
+        </div>
+      </div>
+
+      {/* Stats and tool chips right */}
+      <div class="space-y-8" data-gsap="about-stats">
+        {/* Tool Chips */}
+        <div>
+          <h4 class="font-display text-xs tracking-wider text-cyber-cyan mb-4">
+            Tools I Operate
+          </h4>
+          <div class="flex flex-wrap gap-2">
+            {
+              [
+                "Google Gemini Imagen 3",
+                "Google VEO",
+                "Nano Banana",
+                "Three.js",
+                "GSAP",
+                "React / Astro",
+                "Node.js",
+                "Docker",
+                "Vercel",
+              ].map((tool) => (
+                <span class="font-mono text-[10px] bg-cyber-dark-3 border border-cyber-border/40 px-3 py-1 text-cyber-text-secondary">
+                  {tool}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+
+        {/* Counters / Stats */}
+        <div
+          class="grid grid-cols-2 gap-4 border-t border-cyber-border/20 pt-6"
+        >
+          {
+            [
+              { value: "14+", label: "Active Site Concepts" },
+              { value: "5", label: "AI Tools Mastered" },
+              { value: "24h", label: "Average Delivery Time" },
+              { value: "∞", label: "Images I Can Generate" },
+            ].map((stat) => (
+              <div class="bg-cyber-dark-3/30 border border-cyber-border/15 p-4 rounded-sm">
+                <p class="font-display text-lg text-cyber-cyan">{stat.value}</p>
+                <p class="font-mono text-[9px] text-cyber-text-dim uppercase tracking-wider mt-1">
+                  {stat.label}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

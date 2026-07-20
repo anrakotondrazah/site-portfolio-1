@@ -1,0 +1,27 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import HeroSection from "~/components/hero/HeroSection.astro";
+import DemoLiveSection from "~/components/demo/DemoLiveSection.astro";
+import GallerySection from "~/components/gallery/GallerySection.astro";
+import ServicesSection from "~/components/services/ServicesSection.astro";
+import BeforeAfterSection from "~/components/before-after/BeforeAfterSection.astro";
+import ProcessSection from "~/components/process/ProcessSection.astro";
+import AboutSection from "~/components/about/AboutSection.astro";
+import ContactSection from "~/components/contact/ContactSection.astro";
+---
+
+<BaseLayout>
+  <HeroSection />
+  <DemoLiveSection />
+  <GallerySection />
+  <ServicesSection />
+  <BeforeAfterSection />
+  <ProcessSection />
+  <AboutSection />
+  <ContactSection />
+</BaseLayout>
+
+<script>
+  import { initGSAP } from "~/lib/gsap-init";
+  initGSAP();
+</script>

@@ -1,0 +1,31 @@
+---
+import ComparisonSlider from "./ComparisonSlider.tsx";
+import SectionLabel from "../shared/SectionLabel.astro";
+import { beforeAfterData } from "../../data/before-after";
+---
+
+<section
+  id="before-after"
+  class="relative py-24 bg-cyber-dark overflow-hidden border-b border-cyber-border/30"
+>
+  {/* Cyber Grid background */}
+  <div
+    class="absolute inset-0 bg-cyber-grid bg-grid opacity-10 pointer-events-none"
+  >
+  </div>
+
+  <div class="container mx-auto px-6 max-w-5xl relative z-10">
+    <div class="text-center mb-16">
+      <SectionLabel index="05" label="PROOF" align="center" />
+      <h2 class="font-display text-display-lg text-white mb-4">
+        The Difference Speaks For Itself.
+      </h2>
+      <p class="font-mono text-sm text-cyber-text-secondary max-w-2xl mx-auto">
+        Same subject. Same concept. The gap between "standard" and "AI-powered"
+        is no longer a matter of budget — it's a matter of who you work with.
+      </p>
+    </div>
+
+    <ComparisonSlider pairs={beforeAfterData} client:visible />
+  </div>
+</section>

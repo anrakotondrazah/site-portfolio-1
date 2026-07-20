@@ -1,0 +1,16 @@
+---
+interface Props {
+  index: string;
+  label: string;
+  align?: "left" | "center";
+}
+
+const { index, label, align = "left" } = Astro.props;
+const alignClass = align === "center" ? "text-center" : "";
+---
+
+<span
+  class={`block font-mono text-mono-xs tracking-[0.12em] text-cyber-cyan/50 mb-4 ${alignClass}`}
+>
+  &mdash; {index} / {label}
+</span>

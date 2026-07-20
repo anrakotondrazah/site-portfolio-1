@@ -1,0 +1,74 @@
+---
+import SectionLabel from "../shared/SectionLabel.astro";
+import { processSteps } from "../../data/process-steps";
+---
+
+<section
+  id="process"
+  class="relative py-24 bg-cyber-dark-2 overflow-hidden border-b border-cyber-border/30"
+>
+  {/* Cyber Grid background */}
+  <div
+    class="absolute inset-0 bg-cyber-grid bg-grid opacity-10 pointer-events-none"
+  >
+  </div>
+
+  <div class="container mx-auto px-6 max-w-6xl relative z-10">
+    <div class="text-center mb-16">
+      <SectionLabel index="06" label="PROCESS" align="center" />
+      <h2 class="font-display text-display-lg text-white mb-4">
+        Three Steps.<br />
+        <span class="text-gradient-cyber">That's All It Takes.</span>
+      </h2>
+      <p class="font-mono text-sm text-cyber-text-secondary max-w-2xl mx-auto">
+        We removed everything complicated so you can focus on what matters:
+        getting extraordinary visuals fast.
+      </p>
+    </div>
+
+    {/* Steps Process timeline Grid */}
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+      {
+        processSteps.map((step, idx) => (
+          <div
+            class="relative bg-cyber-dark-3 border border-cyber-border/30 p-6 rounded-sm group hover:border-cyber-cyan/40 transition-all duration-300"
+            data-gsap="process-step"
+          >
+            {/* Top Line Connector decor for desktop only */}
+            {idx < 2 && (
+              <div class="hidden md:block absolute top-1/2 -right-4 translate-x-1/2 w-8 h-[1px] bg-cyber-cyan/30 z-20" />
+            )}
+
+            {/* Step numbering / header */}
+            <div class="flex justify-between items-center mb-6">
+              <span class="font-display text-4xl text-cyber-cyan/20 group-hover:text-cyber-cyan/40 transition-colors duration-300">
+                {step.number}
+              </span>
+              <span class="text-2xl text-cyber-cyan/40 group-hover:text-cyber-cyan animate-pulse">
+                {step.icon}
+              </span>
+            </div>
+
+            {/* Title & Desc */}
+            <h3 class="font-display text-sm text-white tracking-wide mb-3 group-hover:text-cyber-cyan transition-colors">
+              {step.title}
+            </h3>
+            <p class="font-mono text-xs text-cyber-text-secondary leading-relaxed mb-6">
+              {step.description}
+            </p>
+
+            {/* Badge indicator */}
+            <div class="border-t border-cyber-border/20 pt-4 flex justify-between items-center">
+              <span class="font-mono text-[10px] text-cyber-cyan/80">
+                {step.time}
+              </span>
+              <span class="font-mono text-[9px] text-cyber-text-dim">
+                ACTIVE STEP
+              </span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

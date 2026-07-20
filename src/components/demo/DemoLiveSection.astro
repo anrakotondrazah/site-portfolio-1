@@ -1,0 +1,33 @@
+---
+import DemoLive from "./DemoLive.tsx";
+import SectionLabel from "../shared/SectionLabel.astro";
+---
+
+<section
+  id="demo"
+  class="relative py-24 bg-cyber-dark-2 overflow-hidden border-t border-b border-cyber-border/30"
+  style="background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(155,0,255,0.04) 0%, transparent 70%);"
+>
+  {/* Cyber Grid background */}
+  <div
+    class="absolute inset-0 bg-cyber-grid bg-grid opacity-20 pointer-events-none"
+  >
+  </div>
+
+  <div class="container mx-auto px-6 max-w-5xl relative z-10">
+    <div class="text-center mb-12">
+      <SectionLabel index="02" label="DEMO" align="center" />
+      <h2 class="font-display text-display-lg text-white mb-4">
+        Try It Now.<br />
+        <span class="text-gradient-cyber">See AI Work In Real Time.</span>
+      </h2>
+      <p class="font-mono text-sm text-cyber-text-secondary max-w-2xl mx-auto">
+        Type anything you want to visualize. Our AI generates it in seconds.<br
+        />
+        This is not a mockup. This is live.
+      </p>
+    </div>
+
+    <DemoLive client:load />
+  </div>
+</section>

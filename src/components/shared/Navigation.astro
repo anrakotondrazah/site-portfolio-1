@@ -1,0 +1,67 @@
+---
+const navItems = [
+  { label: "Work", href: "#gallery", index: "03" },
+  { label: "Demo", href: "#demo", index: "02" },
+  { label: "Services", href: "#services", index: "04" },
+  { label: "Process", href: "#process", index: "06" },
+  { label: "About", href: "#about", index: "07" },
+  { label: "Contact", href: "#contact", index: "08" },
+];
+---
+
+<nav
+  class="fixed top-0 inset-x-0 z-[--z-nav] backdrop-blur-md border-b border-cyber-border"
+  style="background: rgba(3, 3, 10, 0.85);"
+>
+  <div class="max-w-site mx-auto px-6 h-16 flex items-center justify-between">
+    <!-- Logo -->
+    <a
+      href="#hero"
+      class="font-display text-lg tracking-widest text-cyber-cyan hover:text-white transition-colors duration-300"
+    >
+      N<span class="text-cyber-violet">.</span>V
+    </a>
+
+    <!-- Desktop Links -->
+    <div class="hidden md:flex items-center gap-8">
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class="font-mono text-xs tracking-widest text-cyber-text-secondary hover:text-cyber-cyan transition-colors duration-200"
+          >
+            <span class="text-cyber-cyan/40 mr-1">{item.index}</span>
+            {item.label}
+          </a>
+        ))
+      }
+    </div>
+
+    <!-- Right side -->
+    <div class="flex items-center gap-4">
+      <!-- Language Toggle -->
+      <button
+        class="font-mono text-xs tracking-wider text-cyber-text-secondary hover:text-cyber-cyan transition-colors duration-200"
+        aria-label="Switch language"
+      >
+        EN | FR
+      </button>
+
+      <!-- CTA -->
+      <a
+        href="#demo"
+        class="hidden md:inline-block font-mono text-xs tracking-wider px-4 py-2 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/10 transition-all duration-300"
+      >
+        Get a Free Visual →
+      </a>
+
+      <!-- Mobile menu button -->
+      <button
+        class="md:hidden font-mono text-xs text-cyber-text-secondary hover:text-cyber-cyan"
+        aria-label="Toggle menu"
+      >
+        MENU
+      </button>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,32 @@
+---
+import ServicesGrid from "./ServicesGrid.tsx";
+import SectionLabel from "../shared/SectionLabel.astro";
+import { servicesData } from "../../data/services";
+---
+
+<section
+  id="services"
+  class="relative py-24 bg-cyber-dark-2 overflow-hidden border-b border-cyber-border/30"
+>
+  {/* Cyber Grid background */}
+  <div
+    class="absolute inset-0 bg-cyber-grid bg-grid opacity-10 pointer-events-none"
+  >
+  </div>
+
+  <div class="container mx-auto px-6 max-w-7xl relative z-10">
+    <div class="text-center mb-16">
+      <SectionLabel index="04" label="SERVICES" align="center" />
+      <h2 class="font-display text-display-lg text-white mb-4">
+        Professional AI Visuals.<br />
+        <span class="text-gradient-cyber">Without the Agency Price Tag.</span>
+      </h2>
+      <p class="font-mono text-sm text-cyber-text-secondary max-w-2xl mx-auto">
+        Six services designed for businesses who want more impact, faster
+        results, and smarter spending.
+      </p>
+    </div>
+
+    <ServicesGrid services={servicesData} client:visible />
+  </div>
+</section>
