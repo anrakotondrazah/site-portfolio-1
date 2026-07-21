@@ -1,31 +1,64 @@
 ---
-import ComparisonSlider from "./ComparisonSlider.tsx";
-import SectionLabel from "../shared/SectionLabel.astro";
-import { beforeAfterData } from "../../data/before-after";
+import type { ComparisonPair } from "~/types";
+
+// URLs Pollinations.ai = vraies images IA générées
+// Format : https://image.pollinations.ai/prompt/[description]?params
+
+export const beforeAfterData: ComparisonPair[] = [
+  {
+    id: "ba-01",
+    beforeSrc: "https://picsum.photos/seed/phone01/800/600",
+    afterSrc: "https://image.pollinations.ai/prompt/luxury%20product%20dramatic%20studio%20lighting%20dark%20background%20professional%20photography?width=800&height=600&seed=101&nologo=true",
+    beforeLabel: "Smartphone photo",
+    afterLabel: "AI studio shot",
+    beforeDescription:
+      "A product placed on a table, photographed with a phone. Works, but doesn't sell.",
+    afterDescription:
+      "Same product. Generated in AI with dramatic lighting, perfect backdrop, and zero defects.",
+  },
+  {
+    id: "ba-02",
+    beforeSrc: "https://picsum.photos/seed/office02/800/600",
+    afterSrc: "https://image.pollinations.ai/prompt/professional%20portrait%20cinematic%20lighting%20dark%20background%20photorealistic%208k?width=800&height=600&seed=202&nologo=true",
+    beforeLabel: "Basic headshot",
+    afterLabel: "AI professional portrait",
+    beforeDescription:
+      "A selfie or quick office photo. Technically acceptable, visually forgettable.",
+    afterDescription:
+      "Same person. Consistent lighting, background, posture — AI-crafted for maximum impact.",
+  },
+  {
+    id: "ba-03",
+    beforeSrc: "https://picsum.photos/seed/resto03/800/600",
+    afterSrc: "https://image.pollinations.ai/prompt/luxury%20restaurant%20interior%20candlelight%20golden%20hour%20cinematic%20atmosphere?width=800&height=600&seed=303&nologo=true",
+    beforeLabel: "Standard interior photo",
+    afterLabel: "AI premium ambiance",
+    beforeDescription:
+      "A standard daytime photo of a restaurant. Shows the space, but doesn't sell the experience.",
+    afterDescription:
+      "Same space reimagined: candlelight, golden hour, fine dining atmosphere.",
+  },
+  {
+    id: "ba-04",
+    beforeSrc: "https://picsum.photos/seed/stock04/800/600",
+    afterSrc: "https://image.pollinations.ai/prompt/unique%20brand%20visual%20futuristic%20cyberpunk%20neon%20lights%20cinematic?width=800&height=600&seed=404&nologo=true",
+    beforeLabel: "Generic stock image",
+    afterLabel: "Custom AI brand visual",
+    beforeDescription:
+      "A stock photo from a free website. 10,000 other brands use the same image.",
+    afterDescription:
+      "A unique visual generated specifically for your brand. Never seen before.",
+  },
+  {
+    id: "ba-05",
+    beforeSrc: "https://picsum.photos/seed/screen05/800/600",
+    afterSrc: "https://image.pollinations.ai/prompt/cinematic%20product%20video%20frame%20dramatic%20lighting%20luxury%20brand%208k?width=800&height=600&seed=505&nologo=true",
+    beforeLabel: "Basic screen recording",
+    afterLabel: "AI cinematic frame",
+    beforeDescription:
+      "A simple screen recording or phone video. Gets the message across, barely.",
+    afterDescription:
+      "A cinematic product frame — AI-generated, professionally color-graded.",
+  },
+];
 ---
-
-<section
-  id="before-after"
-  class="relative py-24 bg-cyber-dark overflow-hidden border-b border-cyber-border/30"
->
-  {/* Cyber Grid background */}
-  <div
-    class="absolute inset-0 bg-cyber-grid bg-grid opacity-10 pointer-events-none"
-  >
-  </div>
-
-  <div class="container mx-auto px-6 max-w-5xl relative z-10">
-    <div class="text-center mb-16">
-      <SectionLabel index="05" label="PROOF" align="center" />
-      <h2 class="font-display text-display-lg text-white mb-4">
-        The Difference Speaks For Itself.
-      </h2>
-      <p class="font-mono text-sm text-cyber-text-secondary max-w-2xl mx-auto">
-        Same subject. Same concept. The gap between "standard" and "AI-powered"
-        is no longer a matter of budget — it's a matter of who you work with.
-      </p>
-    </div>
-
-    <ComparisonSlider pairs={beforeAfterData} client:visible />
-  </div>
-</section>
