@@ -35,3 +35,6 @@ pnpm-debug.log*
 
 # local archive
 .local/
+
+# ✅ FIX CRITIQUE — Vercel pre-built output (NE JAMAIS committer)
+.vercel/
