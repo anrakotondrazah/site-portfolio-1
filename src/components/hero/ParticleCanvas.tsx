@@ -1,3 +1,4 @@
+// ✅ FIX ParticleCanvas.tsx — supprime AdditiveBlending (cause du shader warning)
 import { useEffect, useRef, useCallback } from "react";
 
 export default function ParticleCanvas() {
@@ -30,7 +31,6 @@ export default function ParticleCanvas() {
       renderer.setClearColor(0x000000, 0);
       mount.appendChild(renderer.domElement);
 
-      // Particules
       const COUNT = window.innerWidth < 768 ? 1200 : 3000;
       const geometry = new THREE.BufferGeometry();
       const positions = new Float32Array(COUNT * 3);
@@ -60,15 +60,14 @@ export default function ParticleCanvas() {
       geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
       geometry.setAttribute("color",    new THREE.BufferAttribute(colors, 3));
 
-      // PointsMaterial → 100% compatible, pas de shader custom
+      // ✅ FIX : suppression de AdditiveBlending + depthWrite
+      // Ces deux options causent le VALIDATE_STATUS false sur certains GPU
       const material = new THREE.PointsMaterial({
-        size: 0.28,
+        size: 0.30,
         vertexColors: true,
         transparent: true,
-        opacity: 0.75,
+        opacity: 0.85,
         sizeAttenuation: true,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false,
       });
 
       const particles = new THREE.Points(geometry, material);
@@ -79,12 +78,10 @@ export default function ParticleCanvas() {
       const animate = () => {
         frameIdRef.current = requestAnimationFrame(animate);
         const t = clock.getElapsedTime();
-
         particles.rotation.x = t * 0.00015 + mouseRef.current.y * 0.003;
         particles.rotation.y = t * 0.00020 + mouseRef.current.x * 0.003;
         camera.position.x = Math.sin(t * 0.1) * 1.5;
         camera.position.y = Math.cos(t * 0.08) * 1;
-
         renderer.render(scene, camera);
       };
       animate();
