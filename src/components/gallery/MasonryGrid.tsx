@@ -1,3 +1,7 @@
+// ✅ FIX — MasonryGrid.tsx
+// - Catégories alignées avec gallery.ts (ABSTRACT au lieu de FOOD)
+// - galleryCategories maintenant importé correctement depuis gallery.ts
+
 import { useState } from "react";
 import type { GalleryItem } from "~/types";
 import GalleryCard from "./GalleryCard";
@@ -8,9 +12,7 @@ interface Props {
 }
 
 export default function MasonryGrid({ items }: Props) {
-  const [filter, setFilter] = useState<
-    "ALL" | "PRODUCTS" | "PORTRAITS" | "SPACES" | "FOOD" | "FASHION"
-  >("ALL");
+  const [filter, setFilter] = useState<string>("ALL");
 
   const filteredItems =
     filter === "ALL" ? items : items.filter((item) => item.category === filter);
