@@ -1,10 +1,26 @@
+// ✅ FIX — before-after.ts
+// Remplace les chemins locaux introuvables par des URLs Pollinations AI
+// Les images "before" = style basique / "after" = style premium IA
+
 import type { ComparisonPair } from "~/types";
+
+function polUrl(prompt: string, seed: number, w = 800, h = 600) {
+  return `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=${w}&height=${h}&seed=${seed}&nologo=true&model=flux`;
+}
 
 export const beforeAfterData: ComparisonPair[] = [
   {
     id: "ba-01",
-    beforeSrc: "/images/before-after/ba-01-before.webp",
-    afterSrc: "/images/before-after/ba-01-after.webp",
+    // BEFORE : photo produit basique, fond neutre, lumière plate
+    beforeSrc: polUrl(
+      "simple product photo smartphone camera basic lighting white table background amateur photography",
+      111, 800, 600
+    ),
+    // AFTER : packshot IA professionnel avec éclairage dramatique
+    afterSrc: polUrl(
+      "luxury perfume bottle dramatic studio lighting dark background professional product photography 8K sharp",
+      112, 800, 600
+    ),
     beforeLabel: "Smartphone photo",
     afterLabel: "AI studio shot",
     beforeDescription:
@@ -14,8 +30,16 @@ export const beforeAfterData: ComparisonPair[] = [
   },
   {
     id: "ba-02",
-    beforeSrc: "/images/before-after/ba-02-before.webp",
-    afterSrc: "/images/before-after/ba-02-after.webp",
+    // BEFORE : selfie ou photo rapide, fond neutre
+    beforeSrc: polUrl(
+      "casual selfie portrait basic indoor lighting plain background amateur headshot low quality",
+      221, 800, 600
+    ),
+    // AFTER : portrait professionnel IA
+    afterSrc: polUrl(
+      "professional corporate portrait confident businesswoman dark navy blue background studio lighting sharp tailored suit 8K photorealistic",
+      222, 800, 600
+    ),
     beforeLabel: "Basic headshot",
     afterLabel: "AI professional portrait",
     beforeDescription:
@@ -25,8 +49,16 @@ export const beforeAfterData: ComparisonPair[] = [
   },
   {
     id: "ba-03",
-    beforeSrc: "/images/before-after/ba-03-before.webp",
-    afterSrc: "/images/before-after/ba-03-after.webp",
+    // BEFORE : photo standard restaurant en journée, lumière plate
+    beforeSrc: polUrl(
+      "restaurant interior daytime basic photography flat lighting empty tables chairs standard photo",
+      331, 800, 600
+    ),
+    // AFTER : ambiance premium IA avec bougies et lumière dorée
+    afterSrc: polUrl(
+      "elegant luxury restaurant interior candlelight golden hour dark wood marble ambiance Michelin star atmosphere 8K cinematic",
+      332, 800, 600
+    ),
     beforeLabel: "Standard interior photo",
     afterLabel: "AI premium ambiance",
     beforeDescription:
@@ -36,8 +68,16 @@ export const beforeAfterData: ComparisonPair[] = [
   },
   {
     id: "ba-04",
-    beforeSrc: "/images/before-after/ba-04-before.webp",
-    afterSrc: "/images/before-after/ba-04-after.webp",
+    // BEFORE : image stock générique
+    beforeSrc: polUrl(
+      "generic stock photo office business meeting people neutral background bland corporate photography",
+      441, 800, 600
+    ),
+    // AFTER : visuel de marque custom IA
+    afterSrc: polUrl(
+      "unique brand visual creative abstract gradient digital art marketing visual premium 8K vibrant colors professional",
+      442, 800, 600
+    ),
     beforeLabel: "Generic stock image",
     afterLabel: "Custom AI brand visual",
     beforeDescription:
@@ -47,8 +87,16 @@ export const beforeAfterData: ComparisonPair[] = [
   },
   {
     id: "ba-05",
-    beforeSrc: "/images/before-after/ba-05-before.webp",
-    afterSrc: "/images/before-after/ba-05-after.webp",
+    // BEFORE : capture écran basique, qualité téléphone
+    beforeSrc: polUrl(
+      "basic smartphone video screenshot low quality product shot flat lighting amateur footage",
+      551, 800, 600
+    ),
+    // AFTER : frame cinématique IA style publicité
+    afterSrc: polUrl(
+      "cinematic product commercial video frame luxury dramatic lighting slow motion high production value 8K color graded professional advertisement",
+      552, 800, 600
+    ),
     beforeLabel: "Basic screen recording",
     afterLabel: "AI cinematic video",
     beforeDescription:
