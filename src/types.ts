@@ -1,3 +1,7 @@
+// ✅ FIX — types.ts mis à jour
+// - GalleryItem.category élargi pour accepter ABSTRACT (au lieu de FOOD/SPACES seul)
+// - Reste identique
+
 export type Url = `http://${string}` | `https://${string}`;
 type Path = `/${string}`;
 
@@ -19,10 +23,10 @@ export interface GalleryItem {
   thumbSrc: string;
   width: number;
   height: number;
+  aspectRatio: number;
   prompt: string;
   tool: string;
-  category: "PRODUCTS" | "PORTRAITS" | "SPACES" | "FOOD" | "FASHION";
-  aspectRatio: number;
+  category: "PRODUCTS" | "PORTRAITS" | "SPACES" | "FASHION" | "ABSTRACT";
   displayTitle: string;
   hoverText: string;
 }
